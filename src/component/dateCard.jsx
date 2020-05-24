@@ -9,6 +9,15 @@ class DateCard extends Component{
     months = ["January", "February", "March", "April", "May", "June", "July", "August",
         "September", "October", "November", "December"];
 
+    componentDidMount() {
+        this.updateTime();
+    }
+
+    updateTime() {
+        setInterval(()=>{
+            this.setState({date:new Date()});
+        },1000);
+    }
     render() {
         const date = this.state.date;
         return (
@@ -20,8 +29,7 @@ class DateCard extends Component{
                     </div>
                     <div className="col justify-content-center align-self-center">
                         <p className="card-text">Some text.</p>
-                        {/*todo Time should change */}
-                        <p className="card-text">Time: {date.getHours()}:{date.getMinutes()}:{date.getSeconds()}</p>
+                        <p className="card-text">Time: {date.toLocaleTimeString()}</p>
                     </div>
                 </div>
             </div>
