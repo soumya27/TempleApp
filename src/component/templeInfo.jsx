@@ -12,17 +12,20 @@ const TempleInfo = () => {
                     <p className="d-inline-flex">Logo</p>
                     <h1 className="d-inline-flex p-5">{templeInfo.name}</h1>
                 </section>
-                <div className="row p-5">
+                <div className="row p-5 bg-light">
                     <div className="col">
                         <section>
                             <h3 className="p-3">Normal Dharashan Timings</h3>
-                            <ul className="list-group list-group-flush">
-                                {Object.entries(templeInfo.dharashanTimes).map(item =>(
-                                    <li className="list-group-item">
-                                        <strong>{item[0].toUpperCase()}</strong>:{item[1]}
-                                    </li>
-                                ))}
-                            </ul>
+                            <table className="table table-bordered">
+                                <tbody>
+                                    {Object.entries(templeInfo.dharashanTimes).map(item =>(
+                                        <tr itemScope="row" className="bg-light">
+                                            <td>{item[0].toUpperCase()} </td>
+                                            <td>{item[1]}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </section>
                     </div>
                     <div className="col">
@@ -34,15 +37,20 @@ const TempleInfo = () => {
                 </div>
                 <section className="p-5">
                     <h3>Special Dharashan Timings</h3>
-                    <ul className="list-group list-group-flush">
+
+                    <table className="table table-bordered">
+                        <tbody>
                         {Object.entries(templeInfo.specialDharashanTimes).map(item =>(
-                            <li className="list-group-item">
-                                <strong>{item[0].toUpperCase()}</strong>:{item[1]}
-                            </li>
+                            <tr itemScope="row" className="bg-light">
+                                <td>{item[0].toUpperCase()} </td>
+                                <td>{item[1]}</td>
+                                <td className="text-center"><button className="btn btn-primary ">Book</button></td>
+                            </tr>
                         ))}
-                    </ul>
+                        </tbody>
+                    </table>
                 </section>
-                <section className="p-5">
+                <section className="p-5 bg-light">
                     <h3>About {templeInfo.name}</h3>
                     {templeInfo.description}
                 </section>
