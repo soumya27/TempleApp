@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route,Redirect,Switch} from 'react-router-dom';
+import LoginForm from "./component/loginForm";
+import RegisterForm from "./component/registerForm";
+import Notfound from "./component/notFound";
+import TempleInfo from "./component/templeInfo";
+import IdolInfo from "./component/idolInfo";
+import Aboutus from "./component/aboutus";
+import NavigationBar from "./component/navigationBar";
+import MainPage from "./component/mainPage";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <NavigationBar />
+        <Switch>
+            <Route path="/temples" component={TempleInfo} />
+            <Route path ="/idols" component={IdolInfo}/>
+            <Route path="/about" component={Aboutus} />
+            <Route path="/login" component={LoginForm} />
+            <Route path= "/register" component={RegisterForm} />
+            <Route path="/main" component={MainPage}/>
+            <Route path="/not-found" component={Notfound}/>
+            <Redirect from ="/" exact to="/main" />
+            <Redirect to="/not-found" />
+        </Switch>
+    </React.Fragment>
   );
 }
 
