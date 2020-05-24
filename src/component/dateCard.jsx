@@ -20,6 +20,7 @@ class DateCard extends Component{
                     </div>
                     <div className="col justify-content-center align-self-center">
                         <p className="card-text">Some text.</p>
+                        {/*todo Time should change */}
                         <p className="card-text">Time: {date.getHours()}:{date.getMinutes()}:{date.getSeconds()}</p>
                     </div>
                 </div>

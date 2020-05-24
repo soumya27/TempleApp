@@ -5,17 +5,20 @@ import {getAllTemples} from "../services/fakeTempleService";
 
 class MainPage extends Component{
     state = {
+        //todo : get username from login informtion
         username: "Soumya Cherukupalli",
         location: "",
         list: []
     }
 
     componentDidMount() {
+        //todo : get location dynamically
         this.setState({location : "Mahalingapuram"});
         this.setState({list: getAllTemples()});
     }
 
     render() {
+        //todo : move inline styles
         const mystyle = {
             marginTop: "3%",
             marginBottom: "0",
@@ -31,11 +34,11 @@ class MainPage extends Component{
                 <DateCard/>
                 <div className="container p-5">
                     <h4 className="text-center">Temples near you </h4>
+                    {/*todo : decide timing depending on current time*/}
                     {this.state.list.map(temple =>(
                         <TempleCard key={temple._id} name={temple.name} timing={temple.dharashanTimes.evening}/>
                         ))}
                 </div>
-
             </React.Fragment>
         );
     }

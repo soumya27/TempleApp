@@ -4,7 +4,7 @@ import Joi from "joi-browser";
 // import {register} from '../services/userService';
 
 class RegisterForm extends Form {
-
+    //todo: complete registration
     state = {
         data: {
             username: "",

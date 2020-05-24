@@ -1,6 +1,7 @@
 import React from "react";
 import {getTempleInfo} from "../services/fakeTempleService";
 
+//todo: LOT OF CSS WORK
 const TempleInfo = () => {
     const templeInfo = getTempleInfo();
     console.log(templeInfo);

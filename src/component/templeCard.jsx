@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-
+//todo : location and image from temple json
 const TempleCard = ({name,timing,image,location}) =>{
     return(
         <div className="card bg-light mb-3 ">
