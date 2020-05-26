@@ -5,20 +5,38 @@ import {getAllTemples} from "../services/fakeTempleService";
 
 class MainPage extends Component{
     state = {
-        //todo : get username from login informtion
+        //todo : get username from login information
         username: "Soumya Cherukupalli",
         location: "",
         list: []
     }
 
     componentDidMount() {
-        //todo : get location dynamically
-        this.setState({location : "Mahalingapuram"});
+        this.getGeoLocation();
         this.setState({list: getAllTemples()});
+    }
+
+    getGeoLocation(){
+        if (navigator.geolocation){
+           navigator.geolocation.getCurrentPosition(position => {
+               console.log(position.coords.latitude + " , " + position.coords.longitude );
+               fetch("https://us1.locationiq.com/v1/reverse.php?key=b54a9060d67f3a&" +
+                   "lat="+position.coords.latitude+
+                   "&lon="+position.coords.longitude+"&format=json")
+                   .then(response => response.json())
+                   .then(data => {
+                       console.log(data);
+                       this.setState({location : data["address"]["city"]});
+                   });
+           });
+        }else {
+            console.log("Doesn't support geolocation");
+        }
     }
 
     render() {
         //todo : move inline styles
+
         const mystyle = {
             marginTop: "3%",
             marginBottom: "0",
