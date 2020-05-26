@@ -10,8 +10,8 @@ class TempleInfo extends Component{
 
     state = {
         data :{
-            lat: 17.450419,
-            long: 78.381149,
+            lat: 43.0051907,
+            long: -78.80825639999999,
             zoom: 18
         },
         templeInfo:""
@@ -21,7 +21,7 @@ class TempleInfo extends Component{
         const {data} = this.state;
         const map = new mapboxgl.Map({
             container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'https://tiles.locationiq.com/v2/streets/vector.json?key=b54a9060d67f3a',
             center: [data.long,data.lat],
             zoom: data.zoom
         });
